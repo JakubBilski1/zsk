@@ -4,25 +4,33 @@ using namespace std;
 
 class Worker{
 	public:
-	//deklaracja zmiennej czlonkowskiej
-	string name="Januszek";
-	string surname;
-	unsigned short int age;
-	//definicja funkcji czlonkowskiej
-	void showName(){
-		cout<<"Twoje imiê: "<<name<<" "<<surname<<endl;
-	}
+		int id{8};
+		string name{"Katarzyna"};
+		string surname{"Nowak"};
+		
+
+		Worker(int pId=20, string pName="Marek", string pSurname="Nowak");
+		
+		void getData();
 };
 
-int main(int argc, char** argv) {
-	setlocale(LC_CTYPE, "Polish");
-	Worker pracownik;
-	pracownik.surname = "Nowak";
-	pracownik.surname;
-	pracownik.showName();
-	pracownik.age=16;
-	cout<<"wiek: "<<pracownik.age;
-	
-	return 0;
+Worker::Worker(int pId, string pName, string pSurname){
+	name=pName;
+	surname=pSurname;
+	id=pId;
 }
 
+void Worker::getData(){
+	cout<<"Id= "<<id<<endl<<"Imiê i nazwisko: "<<name<<" "<<surname<<endl<<endl;
+}
+
+int main(int argc, char** argv) {
+	setlocale(LC_CTYPE, "polish");
+	Worker nowak=Worker();
+	nowak.getData();
+	Worker nowak1=Worker(31, "Jerzy", "Zjuju");
+	nowak1.getData();
+	Worker nowak2=Worker(31, "Akkuwa");
+	nowak2.getData();
+	return 0;
+}
